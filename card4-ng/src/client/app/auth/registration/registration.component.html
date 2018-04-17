@@ -1,0 +1,125 @@
+<div class="row panel-heading">
+  <div class="col-sm-6 panel-title">
+    Sign Up
+  </div>
+  <div class="col-sm-6">
+    <a [routerLink]="'/login'">Sign In</a>
+  </div>
+</div>
+
+<div class="alert alert-{{message.type}}"
+     *ngIf="message.text"
+>{{message.text}}</div>
+
+<div class="panel-body">
+  <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+      <label for="email" class="control-label">Email</label>
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        name="email"
+        placeholder="Email Address"
+        formControlName="email"
+      >
+      <span
+        class="form-text text-muted"
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+      >
+        <span *ngIf="form.get('email')['errors']['required']">Не может быть пустым.</span>
+        <span *ngIf="form.get('email')['errors']['email']">Некорректный email.</span>
+      </span>
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('firstname').invalid && form.get('firstname').touched}"
+    >
+      <label for="firstname" class="control-label">First Name</label>
+      <input
+        type="text"
+        id="firstname"
+        class="form-control"
+        name="firstname"
+        placeholder="First Name"
+        formControlName="firstname"
+      >
+      <span
+        class="form-text text-muted"
+        *ngIf="form.get('lastname').invalid && form.get('lastname').touched"
+      >
+        <span *ngIf="form.get('firstname')['errors']['required']">Не может быть пустым.</span>
+        <span *ngIf="form.get('firstname')['errors']['minlength']">мин.длина 6 символов</span>
+      </span>
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('lastname').invalid && form.get('lastname').touched}"
+    >
+      <label for="lastname" class="control-label">Last Name</label>
+      <input
+        type="text"
+        id="lastname"
+        class="form-control"
+        name="lastname"
+        placeholder="Last Name"
+        formControlName="lastname"
+      >
+      <span
+        class="form-text text-muted"
+        *ngIf="form.get('lastname').invalid && form.get('lastname').touched"
+      >
+        <span *ngIf="form.get('lastname')['errors']['required']">Не может быть пустым.</span>
+        <span *ngIf="form.get('lastname')['errors']['minlength']">мин.длина 6 символов</span>
+      </span>
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
+    >
+      <label for="password" class="control-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        placeholder="Password"
+        formControlName="password"
+      >
+      <span
+        class="form-text text-muted"
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <span *ngIf="form.get('password')['errors']['required']">Не может быть пустым.</span>
+        <span *ngIf="form.get('password')['errors']['minlength']">мин.длина 6 символов</span>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button
+          type="submit"
+          class="btn btn-info"
+          [disabled]="form.invalid"
+        >Sign Up</button>
+        <span>or</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button
+          type="button"
+          class="btn btn-primary"
+        >Sign Up with Facebook</button>
+      </div>
+    </div>
+
+  </form>
+</div>

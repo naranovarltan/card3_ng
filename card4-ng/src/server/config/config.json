@@ -1,0 +1,18 @@
+{
+  "port": 3000,
+  "mongoose": {
+    "uri": "mongodb://127.0.0.1/card4",
+    "socketOptions": {
+      "keepAlive": 1
+    }
+  },
+  "session": {
+    "secret": "KillerIsJim",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  }
+}
