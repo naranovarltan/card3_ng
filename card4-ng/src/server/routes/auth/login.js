@@ -17,7 +17,8 @@ exports.post = (req, res, next) => {
     req.session.user = user._id;
     res.json({
       error: null,
-      statusCode: 200
+      statusCode: 200,
+      user
     }
     );
   });

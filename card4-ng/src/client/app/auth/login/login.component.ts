@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../../shared/services/user.service';
 import {AuthService} from '../../shared/services/auth.service';
 import {Message} from '../../shared/models/message.model';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   NA: string = 'ar.naranov@gmail.com';
   pass: string = '123456';
+
+  user: User;
 
   form: FormGroup;
   message: Message;
@@ -43,20 +45,23 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
-    this.userService.getUserByEmail(formData.email, formData.password)
+    this.userService.loginEmail(formData.email, formData.password)
       .subscribe((data: object) => {
-        console.log(data);
+        this.user = data['user'];
+        console.log(this.user);
         if (data) {
           if (data['statusCode'] === 200) {
             this.authService.login();
-            this.router.navigate(['/system']);
+            this.router.navigate(['/system/user', data['user']._id]);
           } else {
+            console.log('asd');
             this.showMessage({
               type: 'danger',
               text: 'error'
             });
           }
         } else {
+          console.log('dsa');
           this.showMessage({
             type: 'danger',
             text: 'error'

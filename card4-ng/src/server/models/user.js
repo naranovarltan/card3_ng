@@ -10,13 +10,11 @@ let schema = new Schema({
     unique: true,
     required: true
   },
-  name:{
-    firstname:{
-      type: String
-    },
-    lastname:{
-      type: String
-    }
+  firstname:{
+    type: String
+  },
+  lastname:{
+    type: String
   },
   hashedPassword: {
     type: String,
@@ -81,11 +79,9 @@ schema.statics.registration = function (user, callback) {
           let newUser = new User(
             {
               login: user.email,
-              password: user.password,
-              name:{
-                firstname: user.firstname,
-                lastname: user.lastname
-              }
+              firstname: user.firstname,
+              lastname: user.lastname,
+              password: user.password
             }
           );
           newUser.save((err) => {

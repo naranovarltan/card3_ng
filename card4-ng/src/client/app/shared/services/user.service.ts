@@ -5,10 +5,13 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
   constructor(private http: HttpClient) {
   }
-  getUserByEmail(email: string, password: string) {
+  loginEmail(email: string, password: string) {
     return this.http.post('http://localhost:3000/login', {email, password});
   }
   createUser(data: object) {
     return this.http.post('http://localhost:3000/signup', data);
+  }
+  logoutUser(data) {
+    return this.http.post('http://localhost:3000/logout', data);
   }
 }

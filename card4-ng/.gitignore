@@ -41,3 +41,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/node_modules
+node_modules
+/.idea
+.idea
+/card4-ng/node_modules
+card4-ng/node_modules

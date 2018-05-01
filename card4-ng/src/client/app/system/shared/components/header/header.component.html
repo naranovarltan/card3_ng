@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" [routerLink]="['/system/user/5ad72a6544aa810cb87f4095']">NaranovAA</a>
+    <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" [routerLink]="['/system/user/5ad72a6544aa810cb87f4095']" routerLinkActive="active">My page</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" [routerLink]="['/news']" routerLinkActive="active">News</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <button
+            type="button"
+            class="btn btn-primary btn-x2 mt-2 rounded js-scroll-trigger"
+            [routerLink]=""
+            onclick="logOut()"
+          >LogOut</button>
+      </ul>
+    </div>
+  </div>
+</nav>

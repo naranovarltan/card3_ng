@@ -1,0 +1,10 @@
+<header class="masthead bg-primary text-white text-center">
+  <div class="container">
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/profile.png" alt="">
+    <div *ngFor = "let c of userData">
+      <span class="text-uppercase mb-0">{{c.firstname}}</span>
+      <span class="text-uppercase mb-0">{{c.lastname}}</span>
+      <h2 class="font-weight-light mb-0">{{c.login}}</h2>
+    </div>
+  </div>
+</header>
